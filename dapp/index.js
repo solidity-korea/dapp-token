@@ -279,6 +279,298 @@ var ContractABI = web3.eth.contract(
 
 var Contract;
 
+// import ContractABI from '../build/MyToken.json'
+var ContractABI = web3.eth.contract(
+    [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "name": "_owner",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "name": "_spender",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "_value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "Approval",
+            "type": "event"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_spender",
+                    "type": "address"
+                },
+                {
+                    "name": "_value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "approve",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "buyToken",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "name": "_value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "transfer",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_from",
+                    "type": "address"
+                },
+                {
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "name": "_value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "transferFrom",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "msgValue",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "amount",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "totalSupply",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "msgSender",
+                    "type": "address"
+                }
+            ],
+            "name": "BuyToken",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "name": "_from",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "name": "_to",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "_value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "Transfer",
+            "type": "event"
+        },
+        {
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "fallback"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "withdraw",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_owner",
+                    "type": "address"
+                },
+                {
+                    "name": "_spender",
+                    "type": "address"
+                }
+            ],
+            "name": "allowance",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_owner",
+                    "type": "address"
+                }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "name",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "rate",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+);
+
+var Contract;
+
 window.addEventListener('load', function() {
 
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -286,7 +578,7 @@ window.addEventListener('load', function() {
         // Use Mist/MetaMask's provider
         web3 = new Web3(web3.currentProvider);
         console.log('metamask');
-        Contract = ContractABI.at('0x20817d1874b089c85b2ec3784917cafb92f3cd0d');
+        Contract = ContractABI.at('0xc6fe6729522b576204fae6b8de9f9bda26ab89fb');
         console.log(Contract);
     } else {
         console.log('No web3? You should consider trying MetaMask!');
@@ -296,6 +588,14 @@ window.addEventListener('load', function() {
         console.log('local');
         console.log(web3);
     }
+
+    var event = Contract.BuyToken()
+    // watch for event of BuyToken
+    event.watch(function(error, result){
+      if (!error)
+        console.log(result);
+        getBalance();
+    });
 
 });
 
@@ -308,25 +608,22 @@ function buyToken () {
         to: Contract.address,
         value: web3.toWei(price, 'ether'),
     };
-    Contract.deposit.sendTransaction(tx, function(err, res){
+
+    web3.eth.sendTransaction(tx, function(err, res){
         console.log(res);
         console.log(err);
         document.getElementById('loader').hidden = false;
     });
-    var depositEvent = Contract.Deposit();
 
+    // 새 블록 mining 될 때 마다 callback 호출
     web3.eth.filter('latest', function(error1, result1){ // waiting mining for pending tx
-        depositEvent.watch(function(error, result){
-            if(!error){
-                watchBalance();
-            }
-        });
+        getBalance();
     });
 
 }
 
 
-function watchBalance() {
+function getBalance() {
     var coinbase = web3.eth.coinbase;
     document.getElementById('coinbase').innerText = 'coinbase: ' + coinbase;
 
@@ -344,7 +641,7 @@ function watchBalance() {
             console.log(result);
             balanceMyToken = result;
             var balance = result['c'][0] / Math.pow(10, 4);
-            document.getElementById("burrowcoin").innerText = balance.toString();
+            document.getElementById("mytoken").innerText = balance.toString();
             document.getElementById('loader').hidden = true;
         }
         else{
@@ -356,5 +653,5 @@ function watchBalance() {
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('buyToken').onclick = buyToken;
-    document.getElementById('watch').onclick = watchBalance;
+    document.getElementById('watch').onclick = getBalance;
 });

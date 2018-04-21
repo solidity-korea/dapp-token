@@ -4,7 +4,7 @@
 
 - Truffle v4.1.5 
 - Solidity ^0.4.21
-- Web3 0.20.6
+- Web3.js 0.20.6
 - npm or python ( for local server )
 
 
@@ -44,4 +44,4 @@ Now open your browser at `http://localhost:8000`
 ## Check Contract Transactions
 
 - Ropsten
-    - contract address: [0x](https://ropsten.etherscan.io/address/0x)
+    - contract address: [0xc6fe6729522b576204fae6b8de9f9bda26ab89fb](https://ropsten.etherscan.io/address/0xc6fe6729522b576204fae6b8de9f9bda26ab89fb)
